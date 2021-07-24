@@ -1,10 +1,15 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay" *ngIf="false">
+    <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <div class="logo-wrapper">
+            <ion-avatar>
+              <img
+                src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+              />
+            </ion-avatar>
+          </div>
 
           <ion-menu-toggle
             auto-hide="false"
@@ -26,19 +31,11 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon
-              slot="start"
-              ios="bookmark-outline"
-              md="bookmark-sharp"
-            ></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
+        <div class="wrapper-sign-out">
+          <ion-button fill="clear" expand="block">
+            <ion-icon name="power-outline"></ion-icon>
+          </ion-button>
+        </div>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
