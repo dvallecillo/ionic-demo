@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Available Missions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngFor="let mission of missions">
+    <ion-card>
+      <img src="./assets/star-wars.jpg" />
+      <ion-card-header>
+        <ion-button class="btn-view" fill="outline" [routerLink]="[mission.id]"
+          >View</ion-button
+        >
+        <ion-card-subtitle>{{mission.director}}</ion-card-subtitle>
+        <ion-card-title>{{mission.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content> {{mission.description}} </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>
