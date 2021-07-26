@@ -5,20 +5,18 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public appPages = [
-    { title: 'Dashboard', url: '/available-missions', icon: 'image' },
-    { title: 'Photos', url: '/available-missions', icon: 'image' },
+  appPages = [
+    { title: 'Dashboard', icon: 'image' },
+    { title: 'Photos', icon: 'image' },
     {
       title: 'Available Missions',
       url: '/available-missions',
       icon: 'image',
     },
-    { title: 'My Missions', url: '/available-missions', icon: 'image' },
+    { title: 'My Missions', icon: 'image' },
     {
       title: 'Chat',
-      url: '/available-missionsavailable-missions',
       icon: 'image',
     },
   ];
-  constructor() {}
 }

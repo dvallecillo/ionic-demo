@@ -16,6 +16,7 @@
             *ngFor="let p of appPages; let i = index"
           >
             <ion-item
+              [disabled]="!p.url"
               routerDirection="root"
               [routerLink]="[p.url]"
               lines="none"
