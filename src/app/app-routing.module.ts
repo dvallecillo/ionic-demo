@@ -5,26 +5,41 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    loadChildren: () =>
+      import('./folder/folder.module').then((m) => m.FolderPageModule),
   },
   {
     path: 'sign-in',
-    loadChildren: () => import('./sign-in/sign-in.module').then( m => m.SignInPageModule)
+    loadChildren: () =>
+      import('./sign-in/sign-in.module').then((m) => m.SignInPageModule),
   },
   {
     path: 'available-missions',
-    loadChildren: () => import('./available-missions/available-missions.module').then( m => m.AvailableMissionsPageModule)
-  }
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./available-missions/available-missions.module').then(
+            (m) => m.AvailableMissionsPageModule
+          ),
+      },
+      {
+        path: ':id',
+        loadChildren: () =>
+          import('./mission/mission.module').then((m) => m.MissionPageModule),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

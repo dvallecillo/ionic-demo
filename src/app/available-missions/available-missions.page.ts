@@ -1,6 +1,6 @@
-import { IMission } from './../models/app.models';
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IMission } from './../models/app.models';
 
 @Component({
   selector: 'app-available-missions',
@@ -14,6 +14,5 @@ export class AvailableMissionsPage implements OnInit {
 
   ngOnInit() {
     this.missions = this.route.snapshot.data.list;
-    console.log(this.missions);
   }
 }
