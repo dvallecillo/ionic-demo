@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -19,4 +21,18 @@ export class AppComponent {
       icon: 'image',
     },
   ];
+
+  get loggedIn$() {
+    return this.authService.loggedIn$;
+  }
+
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
+
+  signOut() {
+    this.authService.logout();
+    this.router.navigate(['/sign-in']);
+  }
 }

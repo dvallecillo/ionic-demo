@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AvailableMissionsService } from '../services/available-missions/available-missions.service';
+import { AvailableMissionsService } from '../services/available-missions.service';
 import { IMission } from './../models/app.models';
 
 @Injectable({ providedIn: 'root' })

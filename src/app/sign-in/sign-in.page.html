@@ -1,5 +1,5 @@
 <ion-content class="ion-padding">
-  <form>
+  <form [formGroup]="loginForm">
     <div class="wrapper-sign-in-logo">
       <div class="logo-wrapper">
         <ion-avatar>
@@ -15,11 +15,19 @@
     <div class="input-group">
       <ion-item>
         <ion-icon name="mail-outline"></ion-icon>
-        <ion-input type="email" placeholder="Email"></ion-input>
+        <ion-input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        ></ion-input>
       </ion-item>
       <ion-item>
         <ion-icon name="lock-closed-outline"></ion-icon>
-        <ion-input type="password" placeholder="Password"></ion-input>
+        <ion-input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        ></ion-input>
       </ion-item>
     </div>
 
@@ -43,7 +51,12 @@
       <ion-button expand="block" fill="outline" shape="round"
         >Sign Up</ion-button
       >
-      <ion-button type="submit" expand="block" shape="round" (click)="login()"
+      <ion-button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        expand="block"
+        shape="round"
+        (click)="login()"
         >Sign In</ion-button
       >
     </div>
